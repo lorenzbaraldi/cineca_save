@@ -9,12 +9,14 @@
 #SBATCH --time=4:00:00
 #SBATCH -A IscrB_MMFM
 #SBATCH --partition=lrd_all_serial
-#SBATCH --array=0-2%3
+#SBATCH --array=0-3%4
+#SBATCH --mail-type=START      # Optional: Notify by email when the job start
+#SBATCH --mail-user=lorenzo.baraldi01@unimore.it  # Your email address for notifications
 
 paths=(
     "/leonardo_scratch/large/userexternal/lbarald1/dire"
     "/leonardo_scratch/large/userexternal/lbarald1/Dit-3"
-# "/leonardo_scratch/large/userexternal/fcocchi0/sdan"
+    "/leonardo_scratch/large/userexternal/lbarald1/Head"
     "/leonardo_scratch/large/userexternal/lbarald1/mapet"
 )
 
@@ -23,5 +25,8 @@ path=${paths[$SLURM_ARRAY_TASK_ID]}
 echo "Run metadata changes for user lbarald1 on partition lrd_all_serial for path $path"
 
 # cd /leonardo/home/userexternal/tpoppi00/scripts
-
 ./update_metadata.sh "$path"
+
+# Reschedule the job to run in 7 days
+echo "Rescheduling next job for 14 days later..."
+sbatch --begin=now+14days sbatch_scratch_chrono_updater.sh
