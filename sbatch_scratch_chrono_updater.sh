@@ -10,7 +10,7 @@
 #SBATCH -A IscrB_MMFM
 #SBATCH --partition=lrd_all_serial
 #SBATCH --array=0-3%4
-#SBATCH --mail-type=START      # Optional: Notify by email when the job start
+#SBATCH --mail-type=BEGIN      # Optional: Notify by email when the job start
 #SBATCH --mail-user=lorenzo.baraldi01@unimore.it  # Your email address for notifications
 
 paths=(
