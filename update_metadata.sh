@@ -29,7 +29,7 @@ error_count=0
 
 # Find all files recursively and update their timestamps, log only errors
 while IFS= read -r -d '' file; do
-    if touch -d "$new_date" "$file"; then
+    if touch "$file"; then
         file_count=$((file_count + 1))
     else
         echo "Error updating $file"  # Only log errors
