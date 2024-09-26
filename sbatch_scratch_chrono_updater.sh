@@ -35,8 +35,7 @@ echo "Run metadata changes for user lbarald1 on partition lrd_all_serial for pat
 
 # Reschedule the job to run in 7 days
 echo "Rescheduling next job for 1 days later..."
-if $SLURM_ARRAY_TASK_ID == 0
-then
+if [ $SLURM_ARRAY_TASK_ID -eq 0 ]; then
     sbatch --begin=now+1days sbatch_scratch_chrono_updater.sh
 fi
 
