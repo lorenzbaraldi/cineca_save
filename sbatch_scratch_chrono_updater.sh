@@ -12,15 +12,16 @@
 #SBATCH --array=0-2%3
 
 paths=(
-"/leonardo_scratch/large/userexternal/fcocchi0/dpo"
-"/leonardo_scratch/large/userexternal/fcocchi0/safe-clip"
-"/leonardo_scratch/large/userexternal/fcocchi0/sdan"
+# "/leonardo_scratch/large/userexternal/fcocchi0/dpo"
+# "/leonardo_scratch/large/userexternal/fcocchi0/safe-clip"
+# "/leonardo_scratch/large/userexternal/fcocchi0/sdan"
+"/leonardo_scratch/large/userexternal/lbarald1/mapet/log_run"
 )
 
 path=${paths[$SLURM_ARRAY_TASK_ID]}
 
-echo "Run metadata changes for user tpoppi00 on partition lrd_all_serial for path $path"
+echo "Run metadata changes for user lbarald1 on partition lrd_all_serial for path $path"
 
-cd /leonardo/home/userexternal/tpoppi00/scripts
+# cd /leonardo/home/userexternal/tpoppi00/scripts
 
 ./update_metadata.sh "$path"
