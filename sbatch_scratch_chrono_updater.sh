@@ -24,4 +24,4 @@ echo "Run metadata changes for user lbarald1 on partition lrd_all_serial for pat
 
 # cd /leonardo/home/userexternal/tpoppi00/scripts
 
-./update_metadata.sh "$path"
+./update_metadata.sh "$paths"
