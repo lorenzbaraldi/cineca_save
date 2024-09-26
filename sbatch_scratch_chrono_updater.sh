@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=chrono_task_tpoppi
-#SBATCH --output=/leonardo/home/userexternal/tpoppi00/.log_scratch_scripting/logs_%A_%a.out
-#SBATCH --error=/leonardo/home/userexternal/tpoppi00/.log_scratch_scripting/logs_%A_%a.err
+#SBATCH --output=/leonardo_scratch/large/userexternal/lbarald1/log_backup/logs_%A_%a.out
+#SBATCH --error=/leonardo_scratch/large/userexternal/lbarald1/log_backup/logs_%A_%a.err
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
