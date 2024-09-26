@@ -35,7 +35,7 @@ while IFS= read -r -d '' file; do
         echo "Error updating $file"  # Only log errors
         error_count=$((error_count + 1))
     fi
-done < <(find "$folder_path" -type f -print0)
+done < <(find "$folder_path" -print0)
 
 # Log the finish time, folder, and elapsed time
 finish_time=$(date +"%s")
