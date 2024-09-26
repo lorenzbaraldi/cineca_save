@@ -13,6 +13,12 @@
 #SBATCH --mail-type=BEGIN      # Optional: Notify by email when the job start
 #SBATCH --mail-user=lorenzo.baraldi01@unimore.it  # Your email address for notifications
 
+
+########## RELEVANT #################
+# Put the paths to update date time remember to not put very big folders as compute has to finish in 4 hours
+# Adjust also the array size
+#####################################
+
 paths=(
     "/leonardo_scratch/large/userexternal/lbarald1/dire"
     "/leonardo_scratch/large/userexternal/lbarald1/Dit-3"
@@ -28,7 +34,7 @@ echo "Run metadata changes for user lbarald1 on partition lrd_all_serial for pat
 ./update_metadata.sh "$path"
 
 # Reschedule the job to run in 7 days
-echo "Rescheduling next job for 14 days later..."
+echo "Rescheduling next job for 1 days later..."
 if $SLURM_ARRAY_TASK_ID == 0
 then
     sbatch --begin=now+1days sbatch_scratch_chrono_updater.sh
